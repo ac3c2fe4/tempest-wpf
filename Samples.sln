@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SampleWindow", "SampleWindo
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Common", "Common\Common.csproj", "{EBC6F479-9A41-40CD-85B0-12E7F024DAE4}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SamplePanel", "SamplePanel\SamplePanel.csproj", "{8F58CA55-4EAA-4901-BF38-DAB1DFB80B6F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{EBC6F479-9A41-40CD-85B0-12E7F024DAE4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EBC6F479-9A41-40CD-85B0-12E7F024DAE4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EBC6F479-9A41-40CD-85B0-12E7F024DAE4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8F58CA55-4EAA-4901-BF38-DAB1DFB80B6F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8F58CA55-4EAA-4901-BF38-DAB1DFB80B6F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8F58CA55-4EAA-4901-BF38-DAB1DFB80B6F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8F58CA55-4EAA-4901-BF38-DAB1DFB80B6F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

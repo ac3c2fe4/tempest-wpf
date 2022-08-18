@@ -12,7 +12,6 @@
         WindowState="{Binding SelectedWindowState}"
         ResizeMode="{Binding SelectedResizeMode}"
         ShowInTaskbar="{Binding ShowInTaskbar}"
-        
         SizeToContent="Manual"
         Icon="SampleIcon.png"
         Height="350" Width="800" >
@@ -21,6 +20,7 @@
     </Window.DataContext>
 
     <StackPanel Orientation="Vertical" Margin="10">
+        <!--Resource-->
         <StackPanel.Resources>
             <Style TargetType="{x:Type StackPanel}">
                 <Setter Property="Orientation" Value="Horizontal"/>
@@ -44,6 +44,7 @@
             </Style>
         </StackPanel.Resources>
         
+        <!--Menu-->
         <StackPanel>
             <TextBlock Text="Title"/>
             <TextBox Text="{Binding MainWindowTitle, UpdateSourceTrigger=PropertyChanged}"/>

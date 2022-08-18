@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Sample_Window.Properties
+namespace SamplePanel.Properties
 {
 
 
