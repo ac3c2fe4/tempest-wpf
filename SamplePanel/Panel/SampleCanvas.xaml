@@ -6,7 +6,31 @@
              xmlns:local="clr-namespace:SamplePanel"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
+    <UserControl.Resources>
+        <Style TargetType="{x:Type Rectangle}">
+            <Setter Property="Fill" Value="SteelBlue"/>
+            <Setter Property="Margin" Value="3"/>
+            <Setter Property="Width" Value="50"/>
+            <Setter Property="Height" Value="50"/>
+        </Style>
+    </UserControl.Resources>
+    
     <Grid>
-            
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <TextBlock Text="Canvas"/>
+
+        <Border Grid.Row="1" BorderBrush="Black" BorderThickness="1">
+            <Canvas>
+                <Rectangle Canvas.Top="100" Canvas.Left="100" 
+                           Width="50" Height="50"/>
+
+                <Rectangle Canvas.Bottom="100" Canvas.Right="100" 
+                           Width="50" Height="50"/>
+            </Canvas>
+        </Border>
     </Grid>
 </UserControl>
