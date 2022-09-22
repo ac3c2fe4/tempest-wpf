@@ -1,0 +1,106 @@
+﻿<UserControl x:Class="SamplePanel.DynamicGridView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:SamplePanel"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <UserControl.DataContext>
+        <local:DynamicGridVM/>
+    </UserControl.DataContext>
+
+    <Grid>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+
+            <StackPanel Orientation="Horizontal">
+                <StackPanel.Resources>
+                    <Style TargetType="{x:Type ComboBox}">
+                        <Setter Property="Width" Value="50"/>
+                        <Setter Property="HorizontalContentAlignment" Value="Center"/>
+                        <Setter Property="Margin" Value="2 0 0 0"/>
+                    </Style>
+                </StackPanel.Resources>
+
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="Row Count" VerticalAlignment="Center"/>
+
+                    <ComboBox SelectedValue="{Binding RowCount}" SelectedValuePath="Content">
+                        <ComboBoxItem Content="1"/>
+                        <ComboBoxItem Content="2"/>
+                        <ComboBoxItem Content="3"/>
+                        <ComboBoxItem Content="4"/>
+                        <ComboBoxItem Content="5"/>
+                    </ComboBox>
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal" Margin="15 0 0 0">
+                    <TextBlock Text="Column Count" VerticalAlignment="Center"/>
+
+                    <ComboBox SelectedValue="{Binding ColumnCount}" SelectedValuePath="Content">
+                        <ComboBoxItem Content="1"/>
+                        <ComboBoxItem Content="2"/>
+                        <ComboBoxItem Content="3"/>
+                        <ComboBoxItem Content="4"/>
+                        <ComboBoxItem Content="5"/>
+                    </ComboBox>
+                </StackPanel>
+            </StackPanel>
+
+            <Grid Grid.Row="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                
+                <Grid local:DynamicGridHelper.RowCount="{Binding RowCount}" 
+                      local:DynamicGridHelper.ColumnCount="{Binding ColumnCount}" ShowGridLines="True"/>
+
+                <ItemsControl Grid.Column="1" Margin="20 0 0 0">
+                    <ItemsControl.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <Grid ShowGridLines="True" 
+                                  local:DynamicGridHelper.RowCount="{Binding RowCount}" 
+                                  local:DynamicGridHelper.ColumnCount="{Binding ColumnCount}"/>
+                        </ItemsPanelTemplate>
+                    </ItemsControl.ItemsPanel>
+
+                    <ItemsControl.ItemContainerStyle>
+                        <Style>
+                            <Setter Property="Grid.Row" Value="{Binding RowIndex}"/>
+                            <Setter Property="Grid.Column" Value="{Binding ColumnIndex}"/>
+                        </Style>
+                    </ItemsControl.ItemContainerStyle>
+
+                    <ItemsControl.Items>
+                        <StackPanel Background="Yellow">
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock Text="Row Index" VerticalAlignment="Center"/>
+
+                                <ComboBox SelectedValue="{Binding RowIndex}" SelectedValuePath="Content">
+                                    <ComboBoxItem Content="0"/>
+                                    <ComboBoxItem Content="1"/>
+                                    <ComboBoxItem Content="2"/>
+                                </ComboBox>
+                            </StackPanel>
+
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock Text="Column Index" VerticalAlignment="Center"/>
+
+                                <ComboBox SelectedValue="{Binding ColumnIndex}" SelectedValuePath="Content">
+                                    <ComboBoxItem Content="0"/>
+                                    <ComboBoxItem Content="1"/>
+                                    <ComboBoxItem Content="2"/>
+                                </ComboBox>
+                            </StackPanel>
+                        </StackPanel>
+                    </ItemsControl.Items>
+                </ItemsControl>
+            </Grid>
+        </Grid>
+    </Grid>
+</UserControl>
